@@ -73,8 +73,8 @@ func (s *WorkerService) Start() {
 }
 
 // NewService is factory method of WorkerService.
-func NewService(workerSize int) WorkerService {
-	return WorkerService{
+func NewService(workerSize int) *WorkerService {
+	return &WorkerService{
 		taskQueue:   make(chan Task),
 		workerQueue: make(chan chan Task, workerSize),
 		workerSize:  workerSize,
